@@ -1,0 +1,65 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif !important;
+  background-color: hsl(113, 73%, 72%) !important;
+}
+.fonts-normal {
+  font-family: "Poppins" !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  color: hsl(0, 1%, 44%);
+  font-size: 14px !important;
+  margin-block: 5px !important;
+}
+.fonts-normal-error {
+  color: hsl(0, 100%, 67%);
+}
+/* HelperText */
+.css-1wc848c-MuiFormHelperText-root.Mui-error {
+  margin: 0;
+  padding: 1px;
+  font-family: "Poppins" !important;
+  font-style: italic;
+  font-size: 11px !important;
+  margin-top: 5px !important;
+  font-weight: 400;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  font-weight: 900 !important;
+  font-family: "Poppins" !important;
+  color: hsl(0, 0%, 8%) !important;
+}
+.sumbit-btn {
+  background-color: hsl(129, 100%, 50%) !important ;
+  box-shadow: none !important ;
+  padding: 34px !important;
+}
+.sumbit-btn:hover {
+  background-color: hsl(0, 0%, 8%) !important ;
+}
+.result-text {
+  font-size: 5rem !important;
+  font-weight: 800 !important;
+  font-style: italic !important;
+  font-family: "Poppins" !important;
+  color: hsl(0, 0%, 8%) !important;
+  line-height: 80px !important;
+}
+
+@media screen and (max-width: 375px) {
+  .result-text {
+    font-size: 3.5rem !important;
+  }
+}
+@media screen and (max-width: 280px) {
+  .result-text {
+    font-size: 3rem !important;
+  }
+}
