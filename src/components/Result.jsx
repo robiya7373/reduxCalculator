@@ -1,7 +1,10 @@
-import React from "react";
-import { Stack, Typography } from "@mui/material";
+import React from 'react';
+import { Stack, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
 
-const Result = ({ day, month, year }) => {
+const Result = () => {
+  const { day, month, year } = useSelector((state) => state.date);
+
   return (
     <Stack>
       <Typography className="result-text">

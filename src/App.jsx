@@ -1,7 +1,7 @@
-import React from "react";
-import "./index.css"
-import { Stack } from "@mui/material";
-import Logic from "./components/Logic";
+import React from 'react';
+import './index.css';
+import { Stack } from '@mui/material';
+import Logic from './components/Logic';
 
 const App = () => {
   return (

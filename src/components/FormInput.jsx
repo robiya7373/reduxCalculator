@@ -3,8 +3,11 @@ import { Box, Fab, Stack, TextField, Typography } from "@mui/material";
 import ArrowIcon from "../assets/icon-arrow.svg";
 import { useForm } from "react-hook-form";
 import DateObject from "react-date-object";
+import { useDispatch } from "react-redux";
+import { setFormData } from "../redux/formInputSlice";
 
-const FormInput = ({ info }) => {
+const FormInput = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -12,15 +15,17 @@ const FormInput = ({ info }) => {
   } = useForm();
   let date = new DateObject();
 
+  const onSubmit = (data) => {
+    dispatch(setFormData(data));
+  };
+
   return (
-    <Stack component="form" gap={2} onSubmit={handleSubmit(info)}>
+    <Stack component="form" gap={2} onSubmit={handleSubmit(onSubmit)}>
       <Stack flexDirection="row" gap={2}>
         <Box>
           <Typography
             className={
-              !!errors?.day
-                ? "fonts-normal fonts-normal-error"
-                : "fonts-normal "
+              !!errors?.day ? "fonts-normal fonts-normal-error" : "fonts-normal"
             }
           >
             Day
@@ -32,9 +37,7 @@ const FormInput = ({ info }) => {
             {...register("day", {
               required: "This field is required",
               validate: {
-                validDay: (value) => {
-                  return value <= 31 || "Must be a valid day";
-                },
+                validDay: (value) => value <= 31 || "Must be a valid day",
               },
             })}
             error={!!errors?.day}
@@ -58,9 +61,7 @@ const FormInput = ({ info }) => {
             {...register("month", {
               required: "This field is required",
               validate: {
-                validMonth: (value) => {
-                  return value <= 12 || "Must be a valid month";
-                },
+                validMonth: (value) => value <= 12 || "Must be a valid month",
               },
             })}
             error={!!errors?.month}
@@ -84,9 +85,7 @@ const FormInput = ({ info }) => {
             {...register("year", {
               required: "This field is required",
               validate: {
-                validYear: (value) => {
-                  return value <= date.year || "Must be in past";
-                },
+                validYear: (value) => value <= date.year || "Must be in past",
               },
             })}
             error={!!errors?.year}
@@ -103,10 +102,14 @@ const FormInput = ({ info }) => {
         <Fab
           type="submit"
           size="large"
-          className="sumbit-btn"
+          className="submit-btn"
           sx={{
             position: "relative",
             left: { lg: "50px", md: "30px", sm: "-30px", xs: "-150px" },
+            backgroundColor: "hsl(129, 100%, 50%)",
+            boxShadow: "none",
+            padding: "34px",
+            ":hover":"hsl(0, 0%, 8%)"
           }}
         >
           <img src={ArrowIcon} alt="Submit" />
